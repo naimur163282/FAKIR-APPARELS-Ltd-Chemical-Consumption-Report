@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏭 Fakir Apparels - Chemical Tracker Pro</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ========== CSS VARIABLES ========== */
+        :root {
+            --primary-blue: #1a237e;
+            --secondary-blue: #283593;
+            --accent-gold: #ffd700;
+            --accent-gold-light: #fff176;
+            --success-green: #4caf50;
+            --danger-red: #f44336;
+            --warning-orange: #ff9800;
+            --telegram-blue: #0088cc;
+            --telegram-light: #34b7f1;
+            --light-bg: #f5f7ff;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #5d6d7e;
+            --border-color: #e0e7ff;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 6px 15px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffec3d 100%);
+            --gradient-telegram: linear-gradient(135deg, #0088cc 0%, #34b7f1 100%);
+        }
+        
+        /* ========== BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        /* ========== DIP DYE LOGO ========== */
+        .dip-dye-logo {
+            text-align: center;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        .brand-name {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(
+                to bottom,
+                #1a237e 0%,        #1a237e 45%,
+                #283593 50%,       #3949ab 60%,
+                #5c6bc0 65%,       #ffd700 75%,
+                #ff9800 80%,       #f44336 90%,
+                #c62828 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+        
+        .sub-title {
+            margin-top: 10px;
+            font-size: 18px;
+            letter-spacing: 4px;
+            color: #666;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .sub-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff9800, transparent);
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 8px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ========== APP CONTAINER ========== */
+        .app-container {
+            max-width: 550px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ========== COMPANY HEADER ========== */
+        .company-header {
+            background: linear-gradient(135deg, #0c2461, #1e3799);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 152, 0, 0.1) 0%, transparent 50%);
+        }
+        
+        .company-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .company-logo i {
+            font-size: 32px;
+            color: var(--accent-gold);
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+        }
+        
+        .company-name {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .company-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            font-family: 'Roboto', sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .plant-name {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--accent-gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ========== APP HEADER ========== */
+        .app-header {
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .app-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .app-title i {
+            color: var(--accent-gold);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .app-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .date-time {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* ========== TABS STYLES ========== */
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 2px solid var(--border-color);
+            padding: 0 10px;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 18px 10px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            color: var(--primary-blue);
+            background: var(--light-bg);
+        }
+        
+        .tab.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--accent-gold);
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 3px;
+        }
+        
+        .tab-badge {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+        
+        /* ========== TELEGRAM STATUS ========== */
+        .telegram-status {
+            background: var(--gradient-telegram);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: 2px solid var(--telegram-blue);
+            color: white;
+            font-weight: 500;
+        }
+        
+        .telegram-status i {
+            color: white;
+            font-size: 20px;
+        }
+        
+        /* ========== TAB CONTENT ========== */
+        .tab-content {
+            display: none;
+            padding: 25px;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* ========== FORM STYLES ========== */
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+        
+        .form-label i {
+            color: var(--primary-blue);
+            width: 20px;
+        }
+        
+        .form-input, .form-select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        .form-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231a237e' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding-right: 50px;
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #a0a0a0;
+        }
+        
+        /* ========== QUANTITY GROUP ========== */
+        .quantity-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .quantity-input {
+            flex: 3;
+        }
+        
+        .unit-select {
+            flex: 1;
+            cursor: pointer;
+        }
+        
+        /* ========== BUTTON STYLES ========== */
+        .btn {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #43a047, #2e7d32);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-telegram {
+            background: var(--gradient-telegram);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-telegram:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, var(--warning-orange), #f57c00);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-warning:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-info {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-info:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* ========== SELECTED CHEMICALS ========== */
+        .selected-list {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            max-height: 250px;
+            overflow-y: auto;
+            border: 2px solid var(--border-color);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+        }
+        
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--border-color);
+        }
+        
+        .selected-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .chemical-info {
+            flex: 1;
+        }
+        
+        .chemical-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .chemical-quantity {
+            font-size: 14px;
+            color: var(--text-light);
+            background: var(--light-bg);
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .remove-btn {
+            background: linear-gradient(135deg, var(--danger-red), #c62828);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+        }
+        
+        /* ========== HISTORY STYLES ========== */
+        .history-list {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .history-item {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--success-green);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .history-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .worker-name {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 16px;
+        }
+        
+        .sync-badge {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .sync-badge.synced {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .sync-badge.local {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .sync-badge.telegram {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .timestamp {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        /* ========== REPORTS STYLES ========== */
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .report-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .report-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        .report-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 10px 0;
+        }
+        
+        .report-label {
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* ========== MESSAGES ========== */
+        .message {
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: slideIn 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+            display: block;
+        }
+        
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+            display: block;
+        }
+        
+        .message.warning {
+            background: #fff3cd;
+            color: #856404;
+            border-color: #ffeaa7;
+            display: block;
+        }
+        
+        .message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border-color: #bee5eb;
+            display: block;
+        }
+        
+        /* ========== LOADING INDICATOR ========== */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--border-color);
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* ========== CONFIGURATION PANEL ========== */
+        .config-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #dee2e6;
+        }
+        
+        .config-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        /* ========== FOOTER ========== */
+        .app-footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 13px;
+            border-top: 1px solid var(--border-color);
+            background: var(--light-bg);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+        
+        /* ========== SCROLLBAR ========== */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-blue);
+        }
+        
+        /* ========== PROGRESS BAR ========== */
+        .progress-container {
+            width: 100%;
+            background: var(--light-bg);
+            border-radius: 10px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-gold));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .dip-dye-logo {
+                margin-bottom: 20px;
+                padding: 0 15px;
+            }
+            
+            .brand-name {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+            
+            .sub-title {
+                font-size: 16px;
+                letter-spacing: 3px;
+            }
+            
+            .tagline {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .dip-dye-logo {
+                margin-bottom: 15px;
+            }
+            
+            .brand-name {
+                font-size: 28px;
+                letter-spacing: 1.5px;
+            }
+            
+            .sub-title {
+                font-size: 14px;
+                letter-spacing: 2px;
+            }
+            
+            .app-container {
+                border-radius: 20px;
+            }
+            
+            .tab {
+                padding: 15px 5px;
+                font-size: 14px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- DIP DYE LOGO -->
+    <div class="dip-dye-logo">
+        <div class="brand-name">FAKIR APPARELS</div>
+        <div class="sub-title">WASHING PLANT</div>
+        <div class="tagline">Chemical Tracking System • Version 2.0 • Telegram Integration</div>
+    </div>
+    
+    <!-- APP CONTAINER -->
+    <div class="app-container">
+        <!-- COMPANY HEADER -->
+        <div class="company-header">
+            <div class="company-logo">
+                <i class="fas fa-industry"></i>
+                <div class="company-name">FAKIR APPARELS LTD.</div>
+            </div>
+            <div class="company-subtitle">Chemical Consumption Report & Tracking</div>
+            <div class="plant-name">🏭 Telegram Bot Integration</div>
+        </div>
+        
+        <!-- APP HEADER -->
+        <div class="app-header">
+            <div class="app-title">
+                <i class="fas fa-flask"></i>
+                <span>Chemical Entry System</span>
+            </div>
+            <div class="app-subtitle">Track & Manage Chemical Consumption - Saves to Telegram</div>
+            <div class="date-time" id="currentDateTime">
+                <i class="far fa-clock"></i>
+                <span id="datetimeText">Loading...</span>
+            </div>
+        </div>
+        
+        <!-- TABS -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('entry')">
+                <i class="fas fa-plus-circle"></i>
+                <span>Entry</span>
+                <span class="tab-badge" id="selectedCount">0</span>
+            </div>
+            <div class="tab" onclick="switchTab('history')">
+                <i class="fas fa-history"></i>
+                <span>History</span>
+                <span class="tab-badge" id="historyCount">0</span>
+            </div>
+            <div class="tab" onclick="switchTab('reports')">
+                <i class="fas fa-chart-bar"></i>
+                <span>Reports</span>
+            </div>
+            <div class="tab" onclick="switchTab('telegram')">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </div>
+        </div>
+        
+        <!-- ENTRY TAB -->
+        <div id="entry" class="tab-content active">
+            <!-- TELEGRAM STATUS -->
+            <div class="telegram-status" id="telegramStatus">
+                <i class="fab fa-telegram"></i>
+                <span><strong>Telegram Bot:</strong> <span id="telegramStatusText">✅ Ready to Send</span></span>
+            </div>
+            
+            <!-- WORKER SELECTION -->
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-user-hard-hat"></i>
+                    <span>Worker Name</span>
+                </label>
+                <select class="form-select" id="workerSelect">
+                    <option value="">-- Select Worker --</option>
+                </select>
+            </div>
+            
+            <!-- CHEMICAL SELECTION -->
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-flask"></i>
+                    <span>Select Chemical</span>
+                </label>
+                <select class="form-select" id="chemicalSelect">
+                    <option value="">-- Select Chemical --</option>
+                </select>
+                
+                <div class="quantity-group">
+                    <input type="number" class="form-input quantity-input" id="quantity" 
+                           placeholder="Enter quantity" step="0.01" min="0" value="">
+                    <select class="form-select unit-select" id="unit">
+                        <option value="kg">kg</option>
+                        <option value="liter">liter</option>
+                        <option value="gm">gm</option>
+                        <option value="ml">ml</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="addChemical()">
+                <i class="fas fa-plus"></i>
+                <span>Add Chemical to List</span>
+            </button>
+            
+            <!-- SELECTED CHEMICALS -->
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-list-check"></i>
+                    <span>Selected Chemicals</span>
+                </label>
+                <div class="selected-list" id="selectedChemicals">
+                    <div class="empty-state">
+                        <i class="fas fa-flask"></i>
+                        <p>No chemicals added yet</p>
+                        <small>Add chemicals using the form above</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BATCH INFO -->
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Batch Information</span>
+                </label>
+                <input type="text" class="form-input" id="buyer" placeholder="Buyer (e.g., H&M)">
+                <input type="text" class="form-input" id="style" placeholder="Style (e.g., Sandy)" style="margin-top: 12px;">
+                <input type="text" class="form-input" id="color" placeholder="Color (e.g., 19-106)" style="margin-top: 12px;">
+            </div>
+            
+            <!-- WASH TYPE -->
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-water"></i>
+                    <span>Wash Type</span>
+                </label>
+                <select class="form-select" id="washType">
+                    <option value="Fresh">Fresh Wash</option>
+                    <option value="Rewash">Rewash</option>
+                    <option value="Panel">Panel Wash</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <!-- LOADER -->
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <p id="loaderText">Sending to Telegram...</p>
+            </div>
+            
+            <!-- SAVE BUTTONS -->
+            <button class="btn btn-success" onclick="saveLocally()">
+                <i class="fas fa-save"></i>
+                <span>Save Locally</span>
+            </button>
+            
+            <button class="btn btn-telegram" onclick="sendToTelegram()" id="telegramBtn">
+                <i class="fab fa-telegram"></i>
+                <span>Send to Telegram Bot</span>
+            </button>
+            
+            <!-- MESSAGE -->
+            <div id="message" class="message"></div>
+        </div>
+        
+        <!-- HISTORY TAB -->
+        <div id="history" class="tab-content">
+            <div class="form-group">
+                <label class="form-label">
+                    <i class="fas fa-filter"></i>
+                    <span>Filter History</span>
+                </label>
+                <select class="form-select" id="filterHistory" onchange="loadHistory()">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                    <option value="all">All Time</option>
+                </select>
+            </div>
+            
+            <div class="history-list" id="historyList">
+                <div class="empty-state">
+                    <i class="fas fa-history"></i>
+                    <p>No transactions found</p>
+                    <small>Start by adding chemical entries</small>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="exportData()">
+                <i class="fas fa-file-export"></i>
+                <span>Export Data as CSV</span>
+            </button>
+            
+            <button class="btn btn-telegram" onclick="syncAllToTelegram()" id="syncTelegramBtn">
+                <i class="fab fa-telegram"></i>
+                <span>Send All to Telegram</span>
+                <span class="tab-badge" id="telegramUnsyncedCount">0</span>
+            </button>
+            
+            <button class="btn" onclick="clearLocalData()" style="background: var(--light-bg); color: var(--danger-red); margin-top: 10px;">
+                <i class="fas fa-trash-alt"></i>
+                <span>Clear Local Data</span>
+            </button>
+        </div>
+        
+        <!-- REPORTS TAB -->
+        <div id="reports" class="tab-content">
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="report-value" id="todayTransactions">0</div>
+                    <div class="report-label">Transactions Today</div>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-weight-scale"></i>
+                    </div>
+                    <div class="report-value" id="todayChemicals">0 kg</div>
+                    <div class="report-label">Chemicals Used</div>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="report-value" id="activeWorkers">0</div>
+                    <div class="report-label">Active Workers</div>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="report-value" id="totalEntries">0</div>
+                    <div class="report-label">Total Entries</div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="generateReport()">
+                <i class="fas fa-chart-pie"></i>
+                <span>Generate Detailed Report</span>
+            </button>
+            
+            <div id="reportDetails" style="margin-top: 25px;"></div>
+        </div>
+        
+        <!-- TELEGRAM CONFIGURATION TAB -->
+        <div id="telegram" class="tab-content">
+            <div class="config-panel">
+                <div class="config-header">
+                    <h4 style="color: var(--telegram-blue);">
+                        <i class="fab fa-telegram"></i> Telegram Bot Configuration
+                    </h4>
+                    <button class="btn btn-info btn-sm" onclick="testTelegramConnection()">
+                        <i class="fas fa-test-tube"></i> Test Connection
+                    </button>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-key"></i>
+                        <span>Bot Token</span>
+                    </label>
+                    <input type="text" class="form-input" id="botTokenInput" 
+                           value="8427737986:AAHiGawRMs3SQYM_TJzVM9s6J4brLa5K2Bc" readonly>
+                    <small style="color: var(--text-light); margin-top: 5px; display: block;">
+                        This is your bot token from @BotFather
+                    </small>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-id-card"></i>
+                        <span>Chat ID</span>
+                    </label>
+                    <input type="text" class="form-input" id="chatIdInput" 
+                           value="8533553435" readonly>
+                    <small style="color: var(--success-green); margin-top: 5px; display: block;">
+                        ✅ Your Chat ID is configured: 8533553435 (Ggg 555)
+                    </small>
+                </div>
+                
+                <button class="btn btn-telegram" onclick="saveTelegramConfig()">
+                    <i class="fas fa-save"></i>
+                    <span>Save Configuration</span>
+                </button>
+                
+                <div class="form-group" style="margin-top: 20px;">
+                    <label class="form-label">
+                        <i class="fas fa-robot"></i>
+                        <span>Bot Information</span>
+                    </label>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid var(--telegram-blue);">
+                        <p><strong>Bot Name:</strong> ChemicalCounting_bot</p>
+                        <p><strong>Bot Username:</strong> @ChemicalCounting_bot</p>
+                        <p><strong>Bot Link:</strong> <a href="https://t.me/ChemicalCounting_bot" target="_blank">t.me/ChemicalCounting_bot</a></p>
+                        <p><strong>Status:</strong> <span id="botStatus">✅ Active & Ready</span></p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </label>
+                    <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; border-left: 4px solid var(--success-green);">
+                        <p><strong>✅ All data will be sent to your Telegram</strong></p>
+                        <p style="font-size: 14px; margin-top: 8px;">
+                            • Every chemical entry creates a Telegram message<br>
+                            • Data is permanently stored in Telegram chat<br>
+                            • Works offline - saves locally first<br>
+                            • Auto-syncs when online<br>
+                            • Backup: Export CSV anytime
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="telegram-status">
+                <i class="fas fa-check-circle"></i>
+                <span><strong>✅ Ready to Launch:</strong> All data will be stored in @ChemicalCounting_bot</span>
+            </div>
+        </div>
+        
+        <!-- FOOTER -->
+        <div class="app-footer">
+            <p><strong>Fakir Apparels Ltd.</strong> • Chemical Tracking System v2.0 • Telegram Integration</p>
+            <p style="font-size: 12px; margin-top: 5px; color: var(--text-light);">
+                <i class="fab fa-telegram"></i> Data stored in Telegram Bot: @ChemicalCounting_bot
+            </p>
+            <div class="footer-links">
+                <a href="javascript:void(0)" onclick="showHelp()">
+                    <i class="fas fa-question-circle"></i> Help
+                </a>
+                <a href="javascript:void(0)" onclick="exportBackup()">
+                    <i class="fas fa-download"></i> Backup
+                </a>
+                <a href="javascript:void(0)" onclick="clearCache()">
+                    <i class="fas fa-broom"></i> Clear Cache
+                </a>
+                <a href="https://t.me/ChemicalCounting_bot" target="_blank">
+                    <i class="fab fa-telegram"></i> Open Bot
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Code with Telegram Integration -->
+    <script>
+        // ========== TELEGRAM CONFIGURATION ==========
+        const TELEGRAM_BOT_TOKEN = "8427737986:AAHiGawRMs3SQYM_TJzVM9s6J4brLa5K2Bc";
+        let TELEGRAM_CHAT_ID = "8533553435"; // Your Chat ID pre-configured
+        
+        // Telegram API URL
+        const TELEGRAM_API_SEND = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        
+        // Chemical Database
+        const CHEMICALS = [
+            "Jingen Neutra Acid", "Antiback Stainer", "Anticreasing Agent", "Meta Bi Sulphite", 
+            "Soda Ash", "Caustic Soda", "Hydrogen Peroxide", "Detergent", "Leveling Agent", 
+            "Potassium Permanganate", "Softener", "Silicon", "Glauber Salt", "Eropen-R", 
+            "Sequestering Agent", "Avco Fix PDC", "Novapret SPF", "Meta", "Acid", "Salt", 
+            "Ot Conc", "Cra", "Silvatol", "Peroxide", "Tubingal", "Aticres", "Bainder", 
+            "Silicone", "Textport", "Supradet", "Sera Gal", "C Scamas", "Nutra Acid", 
+            "Softnar", "Laveling", "Saftnar"  
+        ];
+        
+        // Worker Database
+        const WORKERS = [
+            "Raedh", "Hasan", "Sabbir (বরিশাল)", "Rahinur", "Sochin", "Rahman", "Sabbir", 
+            "Rabbani", "Rashid", "Nurullah", "Junayed", "Momrul", "Mostafiz", "Saju", 
+            "Mahfuz", "Robin", "Mahabub", "Sojib", "Hossain", "Nayeem", "Jewel", "Lipon", 
+            "Biplob", "Showrob", "Mahim", "Parvez", "Keshob", "Mohasin", "Jakir", "Mizan", 
+            "Sariful", "Kawsar - 1", "Kawser - 2", "Sudorshon", "Jahangir", "Lokman", "Yamin", 
+            "Arif", "Kamal", "Babul", "Sumon", "Rifat"
+        ];
+        
+        // Global Variables
+        let selectedChemicals = [];
+        let transactions = [];
+        let unsyncedTelegram = [];
+        let isOnline = navigator.onLine;
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("🎯 Fakir Apparels Chemical Tracker v2.0");
+            console.log("🤖 Telegram Bot: @ChemicalCounting_bot");
+            console.log("👤 Chat ID: 8533553435 (Ggg 555)");
+            console.log("✅ System ready for launch");
+            initApp();
+        });
+        
+        // Initialize App
+        function initApp() {
+            try {
+                // Setup dropdowns
+                setupDropdowns();
+                
+                // Setup tabs
+                setupTabs();
+                
+                // Update time
+                updateDateTime();
+                
+                // Load saved data
+                loadSavedData();
+                
+                // Setup event listeners
+                setupEventListeners();
+                
+                // Set up online/offline detection
+                window.addEventListener('online', handleOnlineStatus);
+                window.addEventListener('offline', handleOnlineStatus);
+                handleOnlineStatus();
+                
+                // Auto-save draft every 30 seconds
+                setInterval(autoSaveDraft, 30000);
+                
+                // Update time every minute
+                setInterval(updateDateTime, 60000);
+                
+                // Set Chat ID and update status
+                document.getElementById('chatIdInput').value = TELEGRAM_CHAT_ID;
+                localStorage.setItem('fakir_telegram_chat_id', TELEGRAM_CHAT_ID);
+                updateTelegramStatus();
+                
+                // Show welcome message
+                showMessage("✅ System Ready! All data will be stored in Telegram.", "success");
+                console.log("✅ App initialized successfully");
+                
+            } catch (error) {
+                console.error("❌ Error initializing app:", error);
+                showMessage("Error loading app. Please refresh.", "error");
+            }
+        }
+        
+        // Setup dropdowns
+        function setupDropdowns() {
+            const workerSelect = document.getElementById('workerSelect');
+            const chemicalSelect = document.getElementById('chemicalSelect');
+            
+            workerSelect.innerHTML = '<option value="">-- Select Worker --</option>';
+            chemicalSelect.innerHTML = '<option value="">-- Select Chemical --</option>';
+            
+            // Populate workers
+            WORKERS.forEach(worker => {
+                const option = document.createElement('option');
+                option.value = worker;
+                option.textContent = worker;
+                workerSelect.appendChild(option);
+            });
+            
+            // Populate chemicals
+            CHEMICALS.forEach(chemical => {
+                const option = document.createElement('option');
+                option.value = chemical;
+                option.textContent = chemical;
+                chemicalSelect.appendChild(option);
+            });
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            document.getElementById('quantity').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') addChemical();
+            });
+            
+            document.getElementById('chemicalSelect').addEventListener('change', function() {
+                if (this.value) document.getElementById('quantity').focus();
+            });
+        }
+        
+        // Setup tabs
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const tabText = this.querySelector('span').textContent.toLowerCase();
+                    if (tabText.includes('entry')) {
+                        showTab('entry');
+                    } else if (tabText.includes('history')) {
+                        showTab('history');
+                        loadHistory();
+                    } else if (tabText.includes('report')) {
+                        showTab('reports');
+                        generateReport();
+                    } else if (tabText.includes('telegram')) {
+                        showTab('telegram');
+                    }
+                });
+            });
+        }
+        
+        // Show tab with animation
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+        }
+        
+        // Switch tabs
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.querySelector('span').textContent.toLowerCase().includes(tabName)) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            const tabContent = document.getElementById(tabName);
+            if (tabContent) {
+                tabContent.classList.add('active');
+                if (tabName === 'history') loadHistory();
+                else if (tabName === 'reports') generateReport();
+            }
+        }
+        
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            const timeStr = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('datetimeText').textContent = `${dateStr} | ${timeStr}`;
+        }
+        
+        // Load saved data
+        function loadSavedData() {
+            try {
+                const saved = localStorage.getItem('fakir_transactions_v3');
+                if (saved) {
+                    transactions = JSON.parse(saved);
+                    console.log(`📁 Loaded ${transactions.length} transactions`);
+                }
+                
+                const unsynced = localStorage.getItem('fakir_unsynced_telegram');
+                if (unsynced) {
+                    unsyncedTelegram = JSON.parse(unsynced);
+                    console.log(`🔄 ${unsyncedTelegram.length} unsynced Telegram transactions`);
+                }
+                
+                const draft = localStorage.getItem('fakir_draft');
+                if (draft) {
+                    selectedChemicals = JSON.parse(draft);
+                    updateSelectedList();
+                }
+                
+                updateBadges();
+            } catch (error) {
+                console.error("Error loading data:", error);
+                transactions = [];
+                unsyncedTelegram = [];
+                selectedChemicals = [];
+            }
+        }
+        
+        // Update badges
+        function updateBadges() {
+            document.getElementById('selectedCount').textContent = selectedChemicals.length;
+            document.getElementById('historyCount').textContent = transactions.length;
+            document.getElementById('telegramUnsyncedCount').textContent = unsyncedTelegram.length;
+            document.getElementById('totalEntries').textContent = transactions.length;
+        }
+        
+        // Update Telegram status
+        function updateTelegramStatus() {
+            const statusText = document.getElementById('telegramStatusText');
+            statusText.textContent = `✅ Connected (Chat ID: ${TELEGRAM_CHAT_ID})`;
+            statusText.style.color = 'white';
+        }
+        
+        // ========== CHEMICAL FUNCTIONS ==========
+        
+        // Add chemical to list
+        function addChemical() {
+            const worker = document.getElementById('workerSelect').value;
+            const chemical = document.getElementById('chemicalSelect').value;
+            const quantity = parseFloat(document.getElementById('quantity').value);
+            const unit = document.getElementById('unit').value;
+            
+            if (!worker) {
+                showMessage('Please select a worker first!', 'error');
+                return;
+            }
+            
+            if (!chemical) {
+                showMessage('Please select a chemical!', 'error');
+                return;
+            }
+            
+            if (!quantity || quantity <= 0 || isNaN(quantity)) {
+                showMessage('Please enter a valid quantity!', 'error');
+                return;
+            }
+            
+            // Check for duplicate
+            const duplicateIndex = selectedChemicals.findIndex(c => 
+                c.name === chemical && c.unit === unit
+            );
+            
+            if (duplicateIndex > -1) {
+                selectedChemicals[duplicateIndex].quantity += quantity;
+                showMessage(`Updated ${chemical}: ${selectedChemicals[duplicateIndex].quantity} ${unit}`, 'success');
+            } else {
+                selectedChemicals.push({
+                    name: chemical,
+                    quantity: quantity,
+                    unit: unit,
+                    id: Date.now() + Math.random()
+                });
+                showMessage(`Added ${chemical}: ${quantity} ${unit}`, 'success');
+            }
+            
+            updateSelectedList();
+            document.getElementById('quantity').value = '';
+            autoSaveDraft();
+        }
+        
+        // Update selected chemicals list
+        function updateSelectedList() {
+            const container = document.getElementById('selectedChemicals');
+            
+            if (selectedChemicals.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-flask"></i>
+                        <p>No chemicals added yet</p>
+                        <small>Add chemicals using the form above</small>
+                    </div>
+                `;
+                document.getElementById('selectedCount').textContent = '0';
+                return;
+            }
+            
+            let html = '';
+            let totalQuantity = 0;
+            
+            selectedChemicals.forEach((chem, index) => {
+                totalQuantity += chem.quantity;
+                html += `
+                    <div class="selected-item">
+                        <div class="chemical-info">
+                            <div class="chemical-name">${chem.name}</div>
+                            <div class="chemical-quantity">${chem.quantity} ${chem.unit}</div>
+                        </div>
+                        <button class="remove-btn" onclick="removeChemical(${index})" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            
+            html += `
+                <div style="text-align: center; margin-top: 15px; padding: 10px; background: #e8f5e9; border-radius: 8px;">
+                    <strong>Total: ${totalQuantity.toFixed(2)} units across ${selectedChemicals.length} chemicals</strong>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            document.getElementById('selectedCount').textContent = selectedChemicals.length;
+        }
+        
+        // Remove chemical from list
+        function removeChemical(index) {
+            const removed = selectedChemicals.splice(index, 1)[0];
+            updateSelectedList();
+            showMessage(`Removed ${removed.name}`, 'warning');
+            autoSaveDraft();
+        }
+        
+        // ========== TELEGRAM FUNCTIONS ==========
+        
+        // Save Telegram configuration
+        function saveTelegramConfig() {
+            showMessage('✅ Telegram configuration already saved!', 'success');
+        }
+        
+        // Test Telegram connection
+        async function testTelegramConnection() {
+            showMessage('Testing Telegram connection...', 'info');
+            
+            try {
+                const testMessage = {
+                    chat_id: TELEGRAM_CHAT_ID,
+                    text: `🤖 *Chemical Tracker Bot Test* 
+                    
+✅ Connection Successful!
+🕐 ${new Date().toLocaleString()}
+🏭 Fakir Apparels Ltd.
+📍 Washing Plant
+
+Bot is ready to receive chemical data.`,
+                    parse_mode: 'Markdown'
+                };
+                
+                const response = await fetch(TELEGRAM_API_SEND, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(testMessage)
+                });
+                
+                if (response.ok) {
+                    showMessage('✅ Telegram connection successful! Test message sent.', 'success');
+                } else {
+                    const error = await response.json();
+                    showMessage(`❌ Telegram error: ${error.description}`, 'error');
+                }
+            } catch (error) {
+                showMessage('❌ Failed to connect to Telegram. Check your internet connection.', 'error');
+            }
+        }
+        
+        // Send data to Telegram
+        async function sendToTelegram() {
+            const worker = document.getElementById('workerSelect').value;
+            const buyer = document.getElementById('buyer').value.trim();
+            const style = document.getElementById('style').value.trim();
+            const color = document.getElementById('color').value.trim();
+            const washType = document.getElementById('washType').value;
+            
+            // Validation
+            if (!worker) {
+                showMessage('Please select a worker!', 'error');
+                return;
+            }
+            
+            if (selectedChemicals.length === 0) {
+                showMessage('Please add at least one chemical!', 'error');
+                return;
+            }
+            
+            if (!buyer) {
+                showMessage('Please enter buyer name!', 'error');
+                return;
+            }
+            
+            // Show loader
+            const loader = document.getElementById('loader');
+            const telegramBtn = document.getElementById('telegramBtn');
+            
+            loader.style.display = 'block';
+            telegramBtn.disabled = true;
+            document.getElementById('loaderText').textContent = 'Sending to Telegram...';
+            
+            // Create transaction
+            const now = new Date();
+            const transaction = {
+                id: Date.now(),
+                date: now.toISOString().split('T')[0],
+                time: now.toTimeString().split(' ')[0],
+                worker: worker,
+                chemicals: [...selectedChemicals],
+                buyer: buyer,
+                style: style,
+                color: color,
+                washType: washType,
+                timestamp: now.getTime(),
+                telegramSent: false
+            };
+            
+            // Prepare message for Telegram
+            let chemicalsText = '';
+            let totalQuantity = 0;
+            
+            selectedChemicals.forEach(chem => {
+                chemicalsText += `• ${chem.name}: ${chem.quantity} ${chem.unit}\n`;
+                totalQuantity += chem.quantity;
+            });
+            
+            const telegramMessage = {
+                chat_id: TELEGRAM_CHAT_ID,
+                text: `🏭 *Fakir Apparels - Chemical Entry*
+                
+📅 *Date:* ${now.toLocaleDateString('en-GB')}
+⏰ *Time:* ${now.toLocaleTimeString('en-US', {hour12: true})}
+👷 *Worker:* ${worker}
+🏷️ *Buyer:* ${buyer}
+🎨 *Style:* ${style || 'N/A'}
+🎨 *Color:* ${color || 'N/A'}
+💧 *Wash Type:* ${washType}
+
+🧪 *Chemicals Used:* (${selectedChemicals.length} items)
+${chemicalsText}
+📊 *Total Quantity:* ${totalQuantity.toFixed(2)} units
+
+✅ *Entry Completed*
+🔢 Entry ID: ${transaction.id}
+📱 Source: Chemical Tracker App`,
+                parse_mode: 'Markdown'
+            };
+            
+            try {
+                // Send to Telegram
+                const response = await fetch(TELEGRAM_API_SEND, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(telegramMessage)
+                });
+                
+                if (response.ok) {
+                    // Mark as sent and save locally
+                    transaction.telegramSent = true;
+                    transaction.telegramTimestamp = new Date().toISOString();
+                    
+                    transactions.push(transaction);
+                    localStorage.setItem('fakir_transactions_v3', JSON.stringify(transactions));
+                    
+                    // Clear form
+                    selectedChemicals = [];
+                    updateSelectedList();
+                    document.getElementById('buyer').value = '';
+                    document.getElementById('style').value = '';
+                    document.getElementById('color').value = '';
+                    localStorage.removeItem('fakir_draft');
+                    
+                    updateBadges();
+                    
+                    showMessage('✅ Successfully sent to Telegram! Data also saved locally.', 'success');
+                    
+                    // Switch to history tab after 2 seconds
+                    setTimeout(() => switchTab('history'), 2000);
+                    
+                } else {
+                    // Save as unsynced
+                    transaction.telegramSent = false;
+                    transactions.push(transaction);
+                    unsyncedTelegram.push(transaction);
+                    
+                    localStorage.setItem('fakir_transactions_v3', JSON.stringify(transactions));
+                    localStorage.setItem('fakir_unsynced_telegram', JSON.stringify(unsyncedTelegram));
+                    
+                    showMessage('⚠️ Saved locally. Telegram send failed. Will retry later.', 'warning');
+                }
+                
+            } catch (error) {
+                // Save as unsynced
+                transaction.telegramSent = false;
+                transactions.push(transaction);
+                unsyncedTelegram.push(transaction);
+                
+                localStorage.setItem('fakir_transactions_v3', JSON.stringify(transactions));
+                localStorage.setItem('fakir_unsynced_telegram', JSON.stringify(unsyncedTelegram));
+                
+                showMessage('⚠️ Saved locally. Network error. Will sync when online.', 'warning');
+            } finally {
+                // Hide loader
+                loader.style.display = 'none';
+                telegramBtn.disabled = false;
+            }
+        }
+        
+        // Sync all to Telegram
+        async function syncAllToTelegram() {
+            if (unsyncedTelegram.length === 0) {
+                showMessage("✅ All data is already synced to Telegram!", "success");
+                return;
+            }
+            
+            const syncBtn = document.getElementById('syncTelegramBtn');
+            syncBtn.disabled = true;
+            syncBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Syncing to Telegram...</span>';
+            
+            showMessage(`🔄 Syncing ${unsyncedTelegram.length} transactions to Telegram...`, "info");
+            
+            let successful = 0;
+            let failed = 0;
+            
+            for (const transaction of unsyncedTelegram) {
+                try {
+                    // Prepare message
+                    let chemicalsText = '';
+                    let totalQuantity = 0;
+                    
+                    transaction.chemicals.forEach(chem => {
+                        chemicalsText += `• ${chem.name}: ${chem.quantity} ${chem.unit}\n`;
+                        totalQuantity += chem.quantity;
+                    });
+                    
+                    const telegramMessage = {
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: `🔄 *Synced Entry - Fakir Apparels*
+                        
+📅 *Original Date:* ${transaction.date}
+⏰ *Original Time:* ${transaction.time}
+👷 *Worker:* ${transaction.worker}
+🏷️ *Buyer:* ${transaction.buyer}
+🎨 *Style:* ${transaction.style || 'N/A'}
+🎨 *Color:* ${transaction.color || 'N/A'}
+💧 *Wash Type:* ${transaction.washType}
+
+🧪 *Chemicals Used:* (${transaction.chemicals.length} items)
+${chemicalsText}
+📊 *Total Quantity:* ${totalQuantity.toFixed(2)} units
+
+✅ *Synced on:* ${new Date().toLocaleString()}
+🔢 Entry ID: ${transaction.id}`,
+                        parse_mode: 'Markdown'
+                    };
+                    
+                    const response = await fetch(TELEGRAM_API_SEND, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(telegramMessage)
+                    });
+                    
+                    if (response.ok) {
+                        transaction.telegramSent = true;
+                        transaction.telegramTimestamp = new Date().toISOString();
+                        successful++;
+                    } else {
+                        failed++;
+                    }
+                    
+                } catch (error) {
+                    failed++;
+                }
+                
+                // Update button text
+                const progress = ((successful + failed) / unsyncedTelegram.length) * 100;
+                syncBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> <span>Syncing... ${Math.round(progress)}%</span>`;
+            }
+            
+            // Update transactions
+            localStorage.setItem('fakir_transactions_v3', JSON.stringify(transactions));
+            
+            // Remove successfully synced transactions
+            unsyncedTelegram = unsyncedTelegram.filter(t => !t.telegramSent);
+            localStorage.setItem('fakir_unsynced_telegram', JSON.stringify(unsyncedTelegram));
+            
+            syncBtn.disabled = false;
+            syncBtn.innerHTML = '<i class="fab fa-telegram"></i> <span>Send All to Telegram</span>';
+            
+            if (successful > 0) {
+                showMessage(`✅ Successfully synced ${successful} transactions to Telegram! ${failed} failed.`, "success");
+            } else {
+                showMessage(`❌ Failed to sync ${failed} transactions. Check your connection.`, "error");
+            }
+            
+            updateBadges();
+            loadHistory();
+        }
+        
+        // ========== LOCAL STORAGE FUNCTIONS ==========
+        
+        // Auto-save draft
+        function autoSaveDraft() {
+            if (selectedChemicals.length > 0) {
+                localStorage.setItem('fakir_draft', JSON.stringify(selectedChemicals));
+            }
+        }
+        
+        // Save locally
+        function saveLocally() {
+            const worker = document.getElementById('workerSelect').value;
+            const buyer = document.getElementById('buyer').value.trim();
+            const style = document.getElementById('style').value.trim();
+            const color = document.getElementById('color').value.trim();
+            const washType = document.getElementById('washType').value;
+            
+            if (!worker) {
+                showMessage('Please select a worker!', 'error');
+                return;
+            }
+            
+            if (selectedChemicals.length === 0) {
+                showMessage('Please add at least one chemical!', 'error');
+                return;
+            }
+            
+            if (!buyer) {
+                showMessage('Please enter buyer name!', 'error');
+                return;
+            }
+            
+            const now = new Date();
+            const transaction = {
+                id: Date.now(),
+                date: now.toISOString().split('T')[0],
+                time: now.toTimeString().split(' ')[0],
+                worker: worker,
+                chemicals: [...selectedChemicals],
+                buyer: buyer,
+                style: style,
+                color: color,
+                washType: washType,
+                timestamp: now.getTime(),
+                telegramSent: false
+            };
+            
+            transactions.push(transaction);
+            unsyncedTelegram.push(transaction);
+            
+            try {
+                localStorage.setItem('fakir_transactions_v3', JSON.stringify(transactions));
+                localStorage.setItem('fakir_unsynced_telegram', JSON.stringify(unsyncedTelegram));
+                localStorage.removeItem('fakir_draft');
+                
+                showMessage(`✅ Saved locally! (${selectedChemicals.length} chemicals)`, 'success');
+                
+                updateBadges();
+                
+                selectedChemicals = [];
+                updateSelectedList();
+                document.getElementById('buyer').value = '';
+                document.getElementById('style').value = '';
+                document.getElementById('color').value = '';
+                
+                setTimeout(() => switchTab('history'), 2000);
+                
+            } catch (error) {
+                showMessage('Error saving transaction. Storage might be full.', 'error');
+            }
+        }
+        
+        // ========== HISTORY FUNCTIONS ==========
+        
+        // Load history
+        function loadHistory() {
+            const filter = document.getElementById('filterHistory').value;
+            const now = new Date();
+            const container = document.getElementById('historyList');
+            
+            let filteredTransactions = [...transactions];
+            
+            if (filter === 'today') {
+                const today = now.toISOString().split('T')[0];
+                filteredTransactions = transactions.filter(t => t.date === today);
+            } else if (filter === 'week') {
+                const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                filteredTransactions = transactions.filter(t => 
+                    new Date(t.timestamp) >= weekAgo
+                );
+            } else if (filter === 'month') {
+                const monthAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+                filteredTransactions = transactions.filter(t => 
+                    new Date(t.timestamp) >= monthAgo
+                );
+            }
+            
+            filteredTransactions.sort((a, b) => b.timestamp - a.timestamp);
+            
+            if (filteredTransactions.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-history"></i>
+                        <p>No transactions found</p>
+                        <small>Try changing the filter or add new entries</small>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            filteredTransactions.forEach(transaction => {
+                const chemicalsText = transaction.chemicals.map(c => 
+                    `${c.name} (${c.quantity}${c.unit})`
+                ).join(', ');
+                
+                const syncClass = transaction.telegramSent ? 'telegram' : 'local';
+                const syncText = transaction.telegramSent ? '✅ Telegram' : '📱 Local';
+                
+                html += `
+                    <div class="history-item">
+                        <div class="history-header">
+                            <div>
+                                <span class="worker-name">${transaction.worker}</span>
+                                <span class="sync-badge ${syncClass}">${syncText}</span>
+                            </div>
+                            <div class="timestamp">${transaction.date} ${transaction.time}</div>
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <strong><i class="fas fa-flask"></i> Chemicals:</strong> 
+                            <span style="color: var(--text-light);">${chemicalsText}</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; font-size: 14px;">
+                            <div>
+                                <strong><i class="fas fa-user-tag"></i> Buyer:</strong> 
+                                ${transaction.buyer || 'N/A'}
+                            </div>
+                            <div>
+                                <strong><i class="fas fa-palette"></i> Style:</strong> 
+                                ${transaction.style || 'N/A'}
+                            </div>
+                            <div>
+                                <strong><i class="fas fa-fill-drip"></i> Color:</strong> 
+                                ${transaction.color || 'N/A'}
+                            </div>
+                            <div>
+                                <strong><i class="fas fa-water"></i> Wash Type:</strong> 
+                                ${transaction.washType}
+                            </div>
+                        </div>
+                        ${transaction.telegramSent ? 
+                            `<div style="margin-top: 10px; font-size: 12px; color: var(--telegram-blue);">
+                                <i class="fab fa-telegram"></i> Sent to Telegram at: ${new Date(transaction.telegramTimestamp).toLocaleTimeString()}
+                            </div>` : 
+                            `<div style="margin-top: 10px; font-size: 12px; color: var(--warning-orange);">
+                                <i class="fas fa-exclamation-triangle"></i> Not sent to Telegram yet
+                            </div>`
+                        }
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        // ========== UTILITY FUNCTIONS ==========
+        
+        // Export data as CSV
+        function exportData() {
+            if (transactions.length === 0) {
+                showMessage("No data to export", "error");
+                return;
+            }
+            
+            let csv = "Date,Time,Worker,Chemical,Quantity,Unit,Buyer,Style,Color,WashType,Telegram Sent,Telegram Timestamp\n";
+            
+            transactions.forEach(transaction => {
+                transaction.chemicals.forEach(chemical => {
+                    csv += `"${transaction.date}","${transaction.time}","${transaction.worker}","${chemical.name}",`;
+                    csv += `"${chemical.quantity}","${chemical.unit}","${transaction.buyer}","${transaction.style}",`;
+                    csv += `"${transaction.color}","${transaction.washType}","${transaction.telegramSent ? 'Yes' : 'No'}",`;
+                    csv += `"${transaction.telegramTimestamp || 'Not Sent'}"\n`;
+                });
+            });
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `Fakir_Chemical_Data_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showMessage("✅ Data exported as CSV file", "success");
+        }
+        
+        // Export backup
+        function exportBackup() {
+            const backupData = {
+                transactions: transactions,
+                unsyncedTelegram: unsyncedTelegram,
+                telegramChatId: TELEGRAM_CHAT_ID,
+                version: '3.0',
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `fakir_backup_${new Date().toISOString().split('T')[0]}.json`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showMessage("✅ Backup exported successfully", "success");
+        }
+        
+        // Clear local data
+        function clearLocalData() {
+            if (confirm("Are you sure you want to clear all local data? This cannot be undone!")) {
+                localStorage.removeItem('fakir_transactions_v3');
+                localStorage.removeItem('fakir_unsynced_telegram');
+                localStorage.removeItem('fakir_draft');
+                transactions = [];
+                unsyncedTelegram = [];
+                selectedChemicals = [];
+                updateSelectedList();
+                loadHistory();
+                updateBadges();
+                showMessage("✅ All local data cleared", "success");
+            }
+        }
+        
+        // Clear cache
+        function clearCache() {
+            localStorage.removeItem('fakir_draft');
+            showMessage("✅ Draft cache cleared", "success");
+        }
+        
+        // Show help
+        function showHelp() {
+            showMessage(`
+                <strong>📖 HOW TO USE:</strong><br>
+                1. Select worker from dropdown<br>
+                2. Select chemical and enter quantity<br>
+                3. Click "Add Chemical to List"<br>
+                4. Add batch information (Buyer, Style, Color)<br>
+                5. Select wash type<br>
+                6. Click "Send to Telegram Bot"<br>
+                <br>
+                <strong>💡 FEATURES:</strong><br>
+                • 42 workers pre-loaded<br>
+                • 36 chemicals pre-loaded<br>
+                • All data stored in Telegram<br>
+                • Works offline (saves locally)<br>
+                • Auto-sync when online<br>
+                • Export CSV for backup<br>
+                • View history and reports<br>
+            `, "success");
+        }
+        
+        // Show message
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = text;
+            messageDiv.className = 'message ' + type;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Handle online/offline status
+        function handleOnlineStatus() {
+            isOnline = navigator.onLine;
+            if (!isOnline) {
+                showMessage('You are offline. Data will be saved locally and synced later.', 'warning');
+            }
+        }
+        
+        // Generate report
+        function generateReport() {
+            const today = new Date().toISOString().split('T')[0];
+            const todayTransactions = transactions.filter(t => t.date === today);
+            
+            let totalChemicals = 0;
+            let totalQuantity = 0;
+            let telegramSent = 0;
+            const chemicalUsage = {};
+            const workerUsage = {};
+            
+            todayTransactions.forEach(transaction => {
+                transaction.chemicals.forEach(chemical => {
+                    totalChemicals++;
+                    totalQuantity += chemical.quantity;
+                    
+                    if (!chemicalUsage[chemical.name]) {
+                        chemicalUsage[chemical.name] = 0;
+                    }
+                    chemicalUsage[chemical.name] += chemical.quantity;
+                    
+                    if (!workerUsage[transaction.worker]) {
+                        workerUsage[transaction.worker] = 0;
+                    }
+                    workerUsage[transaction.worker] += chemical.quantity;
+                });
+                
+                if (transaction.telegramSent) telegramSent++;
+            });
+            
+            const workersToday = [...new Set(todayTransactions.map(t => t.worker))];
+            
+            document.getElementById('todayTransactions').textContent = todayTransactions.length;
+            document.getElementById('todayChemicals').textContent = totalQuantity.toFixed(2) + ' units';
+            document.getElementById('activeWorkers').textContent = workersToday.length;
+            document.getElementById('totalEntries').textContent = transactions.length;
+            
+            const reportDetails = document.getElementById('reportDetails');
+            
+            if (todayTransactions.length === 0) {
+                reportDetails.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-chart-line"></i>
+                        <p>No data for today</p>
+                        <small>Start adding chemical entries to see reports</small>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = `
+                <div style="background: var(--light-bg); padding: 20px; border-radius: 12px; margin-top: 20px;">
+                    <h3 style="margin-bottom: 20px; color: var(--primary-blue);">
+                        <i class="fas fa-chart-pie"></i> Today's Detailed Report
+                    </h3>
+            `;
+            
+            // Telegram Stats
+            html += `
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid var(--telegram-blue);">
+                    <h4 style="color: var(--telegram-blue); margin-bottom: 10px;">
+                        <i class="fab fa-telegram"></i> Telegram Sync Status
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Telegram Sent</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--telegram-blue);">
+                                ${telegramSent}/${todayTransactions.length}
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Sync Rate</div>
+                            <div style="font-size: 24px; font-weight: 700; color: ${telegramSent === todayTransactions.length ? 'var(--success-green)' : 'var(--warning-orange)'};">
+                                ${Math.round((telegramSent / todayTransactions.length) * 100)}%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            html += `
+                <div style="margin-bottom: 25px;">
+                    <h4 style="margin-bottom: 15px; color: var(--text-dark);">
+                        <i class="fas fa-flask"></i> Chemical Usage Breakdown
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+            `;
+            
+            Object.entries(chemicalUsage)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 8)
+                .forEach(([chemical, quantity]) => {
+                    html += `
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+                            <div style="font-weight: 600; margin-bottom: 5px;">${chemical}</div>
+                            <div style="color: var(--success-green); font-size: 18px; font-weight: 700;">
+                                ${quantity.toFixed(2)} units
+                            </div>
+                        </div>
+                    `;
+                });
+            
+            html += `</div></div>`;
+            
+            html += `
+                <div style="margin-bottom: 25px;">
+                    <h4 style="margin-bottom: 15px; color: var(--text-dark);">
+                        <i class="fas fa-users"></i> Worker Activity
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;">
+            `;
+            
+            Object.entries(workerUsage)
+                .sort(([,a], [,b]) => b - a)
+                .forEach(([worker, quantity]) => {
+                    html += `
+                        <div style="background: white; padding: 12px; border-radius: 8px; border-left: 4px solid var(--accent-gold);">
+                            <div style="font-weight: 600; margin-bottom: 5px;">${worker}</div>
+                            <div style="color: var(--primary-blue); font-size: 16px;">
+                                ${quantity.toFixed(2)} units used
+                            </div>
+                        </div>
+                    `;
+                });
+            
+            html += `</div></div>`;
+            
+            html += `
+                <div style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4 style="margin-bottom: 15px; color: var(--text-dark);">
+                        <i class="fas fa-clipboard-check"></i> Daily Summary
+                    </h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Total Transactions</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">
+                                ${todayTransactions.length}
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Total Chemicals Used</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--success-green);">
+                                ${totalChemicals}
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Total Quantity</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--warning-orange);">
+                                ${totalQuantity.toFixed(2)} units
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size: 12px; color: var(--text-light);">Active Workers</div>
+                            <div style="font-size: 24px; font-weight: 700; color: var(--danger-red);">
+                                ${workersToday.length}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            html += `</div>`;
+            reportDetails.innerHTML = html;
+        }
+        
+        // Initial call to setup
+        initApp();
+    </script>
+</body>
+</html>
