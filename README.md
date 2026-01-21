@@ -1,0 +1,1 @@
+# FAKIR-APPARELS-Ltd-Chemical-Consumption-Report
